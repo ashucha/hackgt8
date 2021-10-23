@@ -1,0 +1,21 @@
+{
+  "name": "hackgt8",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "server": "nodemon server.js",
+    "client": "npm start --prefix client"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ashucha/hackgt8.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ashucha/hackgt8/issues"
+  },
+  "homepage": "https://github.com/ashucha/hackgt8#readme"
+}
