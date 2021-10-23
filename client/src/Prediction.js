@@ -1,35 +1,35 @@
-function predictWeights() {
-    let CALIBRATION_TIMES = 10;
-   
-    const restaurantMap = [];
-    restaurantMap[0] = "Chinese";
-    restaurantMap[1] = "Mexican";
-    restaurantMap[2] = "Italian";
-    restaurantMap[3] = "Thai";
-    restaurantMap[4] = "Indian";
-    restaurantMap[5] = "Japanese";
-    restaurantMap[6] = "Korean";
-    restaurantMap[7] = "Greek";
-    restaurantMap[8] = "Vietnamese";
-    restaurantMap[9] = "Cuban";
+function generateCuisine(weightMatrix) { // Returns index to random cuisine based on weights
+    const totalWeight = calculateTotalWeight(weightMatrx);
 
-    const weightMatrix = new Array(2,2,2,2,2,2,2,2,2,2);
-    const totalWeight = 20;
+    return generateRandomCuisine(weightMatrix, totalWeight);
+}
 
-    for (let i = 0; i < CALIBRATION_TIMES; i++) {
-        let restaurantIndex = generateRandomCuisine(weightMatrix, totalWeight);
+function generateImageIndex(cuisineIndex) {  
+    const cuisineImageCount = []; // Hardcoded implementation, TODO: dynamic to folder size
+    cuisineImageCount[0] = 5;
+    cuisineImageCount[1] = 5;
+    cuisineImageCount[2] = 5;
+    cuisineImageCount[3] = 5;
+    cuisineImageCount[4] = 5;
+    cuisineImageCount[5] = 5;
+    cuisineImageCount[6] = 5;
+    cuisineImageCount[7] = 5;
+    cuisineImageCount[8] = 5;
+    cuisineImageCount[9] = 5;
+    let size = cuisineImageCount(cuisineIndex);
+    let imageIndex = Math.floor(Math.random() * size);
+    return imageIndex;
+}
 
-        // Display the image and wait for the user to choose and option thumbs up or thumbs down
+function updateWeights(weightMatrx, restaurantIndex, calibrationValue) {   
+    
 
-        // If thumbs up, calibrationValue = 1, otherweise calibration = -1
-        let calibrationValue = 1;
-        weightMatrix[restaurantIndex] += calibrationValue; 
-        totalWeight += calibrationValue;
-    }
+    const totalWeight = calculateTotalWeight(weightMatrx);
 
-    let MAX_RESTAURANT_CHOICES = 10;
-    // Returning an array of the first MAX_RESTAURANT_CHOICES restaurant choices 
-    return returnRestaurantChioceArray(restaurantMap, weightMatrix, MAX_RESTAURANT_CHOICES);
+    weightMatrix[restaurantIndex] += calibrationValue; 
+    totalWeight += calibrationValue;
+
+    return weightMatrix;    
 }
 
 function generateRandomCuisine(_weightMatrix, _totalWeight) {
@@ -47,12 +47,37 @@ function generateRandomCuisine(_weightMatrix, _totalWeight) {
     return _restarurantIndex;
 }
 
-function returnRestaurantChioceArray(_restaurantMap, _weightMatrix, _totalWeight, _MAX_RESTAURANT_CHOICES) {
+function returnRestaurantChioceArray(weightMatrix) {
+    let MAX_RESTAURANT_CHOICES = 10;
+
+    const restaurantMap = [];
+    restaurantMap[0] = "Chinese";
+    restaurantMap[1] = "Mexican";
+    restaurantMap[2] = "Italian";
+    restaurantMap[3] = "Thai";
+    restaurantMap[4] = "Indian";
+    restaurantMap[5] = "Japanese";
+    restaurantMap[6] = "Korean";
+    restaurantMap[7] = "Greek";
+    restaurantMap[8] = "Vietnamese";
+    restaurantMap[9] = "Cuban";
+
+    const totalWeight = calculateTotalWeight(weightMatrx);
+
     const restaurantChoiceArray = [];
 
     for (let i = 0; i < _MAX_RESTAURANT_CHOICES; i++) {
-        restaurantChoiceArray[i] = restaurantMap[generateRandomCuisine(_weightMatrix, _totalWeight)];
+        restaurantChoiceArray[i] = restaurantMap[generateRandomCuisine(weightMatrix, totalWeight)];
     }
     
     return restaurantChoiceArray;
 } 
+
+function calculateTotalWeight(_weightMatrix) {
+    let totalWeight = 0;
+    const totalWeight = 0;
+    for (let i = 0; i < weigthMatrix.length; i++) {
+        totalWeight += weightMatrx[i];
+    }
+    return totalWeight;
+}
