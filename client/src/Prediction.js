@@ -1,5 +1,5 @@
 function generateCuisine(weightMatrix) { // Returns index to random cuisine based on weights
-    const totalWeight = calculateTotalWeight(weightMatrx);
+    let totalWeight = calculateTotalWeight(weightMatrix);
 
     return generateRandomCuisine(weightMatrix, totalWeight);
 }
@@ -16,38 +16,33 @@ function generateImageIndex(cuisineIndex) {
     cuisineImageCount[7] = 5;
     cuisineImageCount[8] = 5;
     cuisineImageCount[9] = 5;
-    let size = cuisineImageCount(cuisineIndex);
+    let size = cuisineImageCount[cuisineIndex];
     let imageIndex = Math.floor(Math.random() * size);
     return imageIndex;
 }
 
-function updateWeights(weightMatrx, restaurantIndex, calibrationValue) {   
-    
-
-    const totalWeight = calculateTotalWeight(weightMatrx);
-
+function updateWeights(weightMatrix, restaurantIndex, calibrationValue) {   
     weightMatrix[restaurantIndex] += calibrationValue; 
-    totalWeight += calibrationValue;
 
     return weightMatrix;    
 }
 
 function generateRandomCuisine(_weightMatrix, _totalWeight) {
     let randWeight = Math.floor(Math.random() * _totalWeight) + 1;
-
-    let _restarurantIndex;
+    
+    let _restaurantIndex = 0;
     for (let i = 0; i < 10; i++) {
         randWeight -= _weightMatrix[i];
         if (randWeight <= 0) {
-            _restaurantIndex = i - 1;
+            _restaurantIndex = i;
             break;
         }
     }
 
-    return _restarurantIndex;
+    return _restaurantIndex;
 }
 
-function returnRestaurantChioceArray(weightMatrix) {
+function returnRestaurantChoiceArray(weightMatrix) {
     let MAX_RESTAURANT_CHOICES = 10;
 
     const restaurantMap = [];
@@ -62,22 +57,21 @@ function returnRestaurantChioceArray(weightMatrix) {
     restaurantMap[8] = "Vietnamese";
     restaurantMap[9] = "Cuban";
 
-    const totalWeight = calculateTotalWeight(weightMatrx);
+    let totalWeight = calculateTotalWeight(weightMatrix);
 
     const restaurantChoiceArray = [];
 
-    for (let i = 0; i < _MAX_RESTAURANT_CHOICES; i++) {
+    for (let i = 0; i < MAX_RESTAURANT_CHOICES; i++) {
         restaurantChoiceArray[i] = restaurantMap[generateRandomCuisine(weightMatrix, totalWeight)];
     }
     
     return restaurantChoiceArray;
-} 
+}
 
-function calculateTotalWeight(_weightMatrix) {
+function calculateTotalWeight(weightMatrix) {
     let totalWeight = 0;
-    const totalWeight = 0;
-    for (let i = 0; i < weigthMatrix.length; i++) {
-        totalWeight += weightMatrx[i];
+    for (let i = 0; i < weightMatrix.length; i++) {
+        totalWeight += weightMatrix[i];
     }
     return totalWeight;
 }
