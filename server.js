@@ -20,7 +20,7 @@ if (process.env.NODE_ENV === "production") {
   });
 }
 
-const stores = require("./routes/api/stores.js.js");
+const stores = require("./routes/api/stores.js");
 const prediction = require("./routes/api/prediction.js");
 const util = require("./routes/api/util.js");
 app.use("/api/stores", stores);
