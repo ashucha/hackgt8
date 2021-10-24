@@ -48,7 +48,62 @@ git clone https://github.com/ashucha/hackgt8.git
 
 ## 👷 Built with
 
-## 📂 Directory Structure
+- [Axios](https://axios-http.com/)
+- [Express](https://expressjs.com/)
+- [React](https://reactjs.org/)
+- [NCR's Business Services Platform API](https://developer.ncrcloud.com/)
+
+## Documentation
+
+### API
+
+Our API serves as a convenient middleware between the frontend and NCR's Business Services Platform API by taking care of away authentication and simplifying the input format.
+
+Any time a request body needs to be submitted, it is expected to contain the following attributes:
+- name - The name of the restaurant.
+- address - The address of the restaurant.
+- foodType - The type of cuisine the restaurant serves.
+- cost - An integer from 0-3 representing the cost of the restaurant. 0 represents no data, while 1-3 provide a scale of expensiveness.
+- stars - A real number between 1-5 indicating the average number of stars the restaurant was rated.
+- latitude - The latitude of the location of the restaurant (useful for some of the API endpoints).
+- longitude - The longitude of the location of the restaurant (useful for some of the API endpoints).
+
+**GET** `/stores` - Gets all restaurants from the database.
+
+**Query Parameters**
+- foodType - Optionally filter data based on cuisine type.
+
+**GET** `/stores/{id}` - Get a specific restaurant based on id.
+
+**Path Parameters**
+- id - A unique id that is assigned to each restaurant and returned after inserting it into the database.
+
+**GET** `/stores/nearby/{lat},{lon}` - Get all restaurants within a certain radius of a current location, sorted from closest to furthest.
+
+**Path Parameters**
+- lat - The latitude of the current location.
+- lon - The longitude of the current location.
+
+**Query Parameters**
+- radius - An optional limit on the radius from the location within which we should search. Radius is in miles.
+
+**POST** `/stores` - Adds a new restaurant to the database.
+
+**Request Body**
+- The restaurant to be added, with the attributes listed above.
+
+**PUT** `/stores/{id}` - Updates the info for an existing restaurant in the database.
+
+**Path Parameters**
+- id - A unique id that is assigned to each restaurant and returned after inserting it into the database.
+
+**Request Body**
+- A JSON body containing the new values for each of the attributes.
+
+**DELETE** `/stores/{id}` - Deletes an existing restaurant in the database.
+
+**Path Parameters**
+- id - A unique id that is assigned to each restaurant and returned after inserting it into the database.
 
 ## 🎊 Future Updates
 
