@@ -1,20 +1,14 @@
 import React from "react";
 
 // Libraries
-import {
-  Button,
-  Container,
-  Navbar as BSNavbar,
-  Nav,
-  NavDropdown,
-} from "react-bootstrap";
+import { Container, Navbar as BSNavbar, Nav } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
 export default function Navbar() {
   return (
-    <BSNavbar expand="lg">
+    <BSNavbar className="navbar-dark" bg="dark" expand="lg">
       <Container>
-        <BSNavbar.Brand>Name</BSNavbar.Brand>
+        <BSNavbar.Brand className="font-weight-bold">Por Flavor</BSNavbar.Brand>
         <BSNavbar.Toggle aria-controls="basic-navbar-nav" />
         <BSNavbar.Collapse id="basic-navbar-nav">
           <Nav className="d-flex">
