@@ -58,32 +58,23 @@ git clone https://github.com/ashucha/hackgt8.git
 
 **Adam Zamlynny**
 
-- 🌌 [Profile](https://github.com/Azamlynny "Adam Zamlynny")
+- 🌌 [GitHub](https://github.com/Azamlynny "Adam Zamlynny")
 
 **Ashu Cahkragiri**
 
-- 🌌 [Profile](https://github.com/ashucha "Ashu Chakragiri")
+- 🌌 [GitHub](https://github.com/ashucha "Ashu Chakragiri")
 
 **Maxwell Zhang**
 
-- 🌌 [Profile](https://github.com/mzhang2021 "Maxwell Zhang")
+- 🌌 [GitHub](https://github.com/mzhang2021 "Maxwell Zhang")
 
-**Adam Zamlynny**
+**Sarthak Mohanty**
 
-- 🌌 [Profile](https://github.com/High-On-Coding "Sarthak Mohanty")
+- 🌌 [GitHub](https://github.com/High-On-Coding "Sarthak Mohanty")
 
 
 <h2 align="center">🤝 Support</h2>
 
-<p align="center">🎀 Contributions (<a href="https://guides.github.com/introduction/flow" title="GitHub flow">GitHub Flow</a>), 🔥 issues, and 🥮 feature requests are most welcome!</p>
-
 <p align="center">💙 If you like this project, Give it a ⭐ and Share it with friends!</p>
-<p align="center">💰 Donations Links</p>
-<p align="center">
-<a href="https://www.paypal.me/kingrohitJ" title="PayPal"><img src="https://kingtechnologies.in/assets/images/Paypal.png" alt="PayPal"/></a>
-<a href="https://www.buymeacoffee.com/rohitjain" title="Buy me a Coffee"><img src="https://kingtechnologies.in/assets/images/Coffee.png" alt="Buy me a Coffee"/></a>
-<a href="https://ko-fi.com/rohitjain" title="Ko-fi"><img src="https://kingtechnologies.in/assets/images/Kofi.png" alt="Ko-fi"/></a>
-<a href="https://www.patreon.com/KingTechnologies" title="Patreon"><img src="https://kingtechnologies.in/assets/images/Patreon.png" alt="Patreon"/></a>
-</p>
 
-<p align="center">Made with <repo-lang> & ❤️ in India</p>
+<p align="center">❤️ for HexLabs</p>
