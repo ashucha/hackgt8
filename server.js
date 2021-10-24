@@ -13,14 +13,16 @@ app.use(express.json());
 app.use(cors());
 app.use("/", express.static("public"));
 
-app.use(express.static(path.join(__dirname, "/client/build")));
-app.get("*", (req, res) => {
-  res.sendFile(path.join(__dirname, "/client/build/index.html"));
-});
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static(path.join("client/build")));
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "/client/build/index.html"));
+  });
+}
 
-const stores = require("./api/api/stores.js");
-const prediction = require("./api/api/prediction.js");
-const util = require("./api/api/util.js");
+const stores = require("./routes/api/stores.js.js");
+const prediction = require("./routes/api/prediction.js");
+const util = require("./routes/api/util.js");
 app.use("/api/stores", stores);
 app.use("/api/prediction", prediction);
 app.use("/api/util", util);
