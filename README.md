@@ -38,13 +38,9 @@
 
 ## 🚀 Features
 
-## 🛠️ Local Installation Steps
+Have you ever wanted to eat out, but were overwhelmed by all the potential options? Have you ever wanted someone to just read your mind, and recommend you somewhere to eat based on those preferences? Well, that's precisely what Por Flavor does!
 
-1. Clone the repository
-
-```Bash
-git clone https://github.com/ashucha/hackgt8.git
-```
+Por Flavor is essentially "Tinder for food." Upon opening the web app, you'll be greeted with a series of pictures of different types of cuisine, and you can swipe left or right on those cuisines to narrow down your tastes. After a few swipes, our state of the art recommendation algorithm will give you our recommendation. And if you're not satisfied, there will be a few other options below, all ranked, so you know exactly what order to consider them in.
 
 ## 👷 Built with
 
