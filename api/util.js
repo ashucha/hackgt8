@@ -1,5 +1,17 @@
 const axios = require("axios");
 
+const url = "https://gateway-staging.ncrcloud.com/site/";
+const auth = {
+    headers: {
+        "content-type": "application/json",
+        "nep-organization": process.env.NCR_ORG
+    },
+    auth: {
+        username: process.env.NCR_USR,
+        password: process.env.NCR_PWD
+    }
+};
+
 /**
  * Helper method which converts from degrees to radians.
  * @param {Number} deg
@@ -58,14 +70,14 @@ function getGoogleMapsLink(store) {
  * @returns the array of stores
  */
 async function getArrayOfFoodTypes(latitude, longitude, foodTypes) {
-    let response = await axios.get("localhost:5000/nearby/" + latitude + "," + longitude).catch(error => console.error(error));
-    console.log(response);
-    let taken = new Array(response.length).fill(false);
+    const response = await axios.get(url + "v1/sites/find-nearby/" + latitude + "," + longitude + "?radius=2147483647&numSites=500", auth);
+    let stores = response.data.sites.filter(el => el.status === "ACTIVE");
+    let taken = new Array(stores.length).fill(false);
     let ret = new Array(foodTypes.length).fill(undefined);
     for (let i = 0; i < foodTypes.length; i++) {
-        for (let j = 0; j < response.length; j++) {
-            if (!taken[j] && foodTypes[i] === JSON.parse(response[j].siteName).foodType) {
-                ret[i] = response[j];
+        for (let j = 0; j < stores.length; j++) {
+            if (!taken[j] && foodTypes[i] === JSON.parse(stores[j].siteName).foodType) {
+                ret[i] = stores[j];
                 taken[j] = true;
                 break;
             }
@@ -73,5 +85,3 @@ async function getArrayOfFoodTypes(latitude, longitude, foodTypes) {
     }
     return ret;
 }
-
-console.log(getArrayOfFoodTypes(0, 0, ["indian", "fast"]));
