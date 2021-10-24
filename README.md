@@ -1,5 +1,5 @@
 <h1 align="center">🌟 Por Flavor 🌟</h1>
-<p align="center">PLACE DESCRIPTION PHRASE HERE</p>
+<p align="center">A "Tinder for Food," the ultimate cure to indecisiveness when eating out</p>
 
 <p align="center">
 <a href="https://github.com/ashucha/hackgt8/blob/master/LICENSE" title="License">
