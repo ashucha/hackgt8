@@ -6,11 +6,17 @@ const express = require("express");
 const app = express();
 const axios = require("axios");
 const cors = require("cors");
+const path = require("path");
 
 // middleware
 app.use(express.json());
 app.use(cors());
 app.use("/", express.static("public"));
+
+app.use(express.static(path.join(__dirname, "/client/build")));
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "/client/build/index.html"));
+});
 
 const stores = require("./api/api/stores.js");
 const prediction = require("./api/api/prediction.js");
