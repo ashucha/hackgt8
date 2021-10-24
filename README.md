@@ -60,7 +60,7 @@ git clone https://github.com/ashucha/hackgt8.git
 
 - 🌌 [GitHub](https://github.com/Azamlynny "Adam Zamlynny")
 
-**Ashu Cahkragiri**
+**Ashu Chakragiri**
 
 - 🌌 [GitHub](https://github.com/ashucha "Ashu Chakragiri")
 
