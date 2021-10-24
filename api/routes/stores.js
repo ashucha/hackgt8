@@ -1,5 +1,6 @@
 const axios = require("axios");
 const crypto = require("crypto");
+const { json } = require("express");
 const express = require("express");
 const router = express.Router();
 
@@ -19,16 +20,25 @@ const auth = {
  * Adds a store to the database.
  * @param {String} name
  * @param {String} foodType
+ * @param {Number} cost
+ * @param {Number} stars
  * @param {Number} latitude
  * @param {Number} longitude
  */
 router.post("/", (req, res) => {
     let body = {
-        siteName: req.body.name + '~' + req.body.foodType,
+        // have to encode everything in siteName because all irrelevant attributes get automatically removed by NCR API
+        siteName: JSON.stringify({
+            name: req.body.name,
+            foodType: req.body.foodType,
+            cost: req.body.cost,
+            stars: req.body.stars
+        }),
         coordinates: {
             latitude: req.body.latitude,
             longitude: req.body.longitude
         },
+        // enterpriseUnitName must be unique for each entry, but isn't actually significant for our purposes
         enterpriseUnitName: crypto.randomUUID(),
         status: "ACTIVE"
     };
@@ -42,7 +52,7 @@ router.post("/", (req, res) => {
  */
 router.get("/", (req, res) => {
     axios.post(url + "v1/sites/find-by-criteria?pageSize=10000", { criteria: { status: "ACTIVE" } }, auth)
-        .then(response => res.status(200).send(response.data.pageContent.filter(el => req.query.foodType === undefined || req.query.foodType === el.siteName.split("~")[1])))
+        .then(response => res.status(200).send(response.data.pageContent.filter(el => req.query.foodType === undefined || req.query.foodType === JSON.parse(el.siteName).foodType)))
         .catch(error => console.error(error));
 });
 
@@ -69,7 +79,12 @@ router.get("/nearby/:lat,:lon", (req, res) => {
  */
 router.put("/:id", (req, res) => {
     let body = {
-        siteName: req.body.name + '~' + req.body.foodType,
+        siteName: JSON.stringify({
+            name: req.body.name,
+            foodType: req.body.foodType,
+            cost: req.body.cost,
+            stars: req.body.stars
+        }),
         coordinates: {
             latitude: req.body.latitude,
             longitude: req.body.longitude
