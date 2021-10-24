@@ -115,7 +115,7 @@ Any time a request body needs to be submitted, it is expected to contain the fol
 
 - 🌌 [GitHub](https://github.com/Azamlynny "Adam Zamlynny")
 
-**Ashu Cahkragiri**
+**Ashu Chakragiri**
 
 - 🌌 [GitHub](https://github.com/ashucha "Ashu Chakragiri")
 
