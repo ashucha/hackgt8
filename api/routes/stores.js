@@ -18,6 +18,7 @@ const auth = {
 /**
  * Adds a store to the database.
  * @param {String} name
+ * @param {String} address
  * @param {String} foodType
  * @param {Number} cost
  * @param {Number} stars
@@ -29,6 +30,7 @@ router.post("/", (req, res) => {
         // have to encode everything in siteName because all irrelevant attributes get automatically removed by NCR API
         siteName: JSON.stringify({
             name: req.body.name,
+            address: req.body.address,
             foodType: req.body.foodType,
             cost: req.body.cost,
             stars: req.body.stars
@@ -80,6 +82,7 @@ router.put("/:id", (req, res) => {
     let body = {
         siteName: JSON.stringify({
             name: req.body.name,
+            address: req.body.address,
             foodType: req.body.foodType,
             cost: req.body.cost,
             stars: req.body.stars

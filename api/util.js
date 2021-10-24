@@ -58,7 +58,8 @@ function getGoogleMapsLink(store) {
  * @returns the array of stores
  */
 async function getArrayOfFoodTypes(latitude, longitude, foodTypes) {
-    let response = await axios.get("/nearby/" + latitude + "," + longitude).catch(error => console.error(error));
+    let response = await axios.get("localhost:5000/nearby/" + latitude + "," + longitude).catch(error => console.error(error));
+    console.log(response);
     let taken = new Array(response.length).fill(false);
     let ret = new Array(foodTypes.length).fill(undefined);
     for (let i = 0; i < foodTypes.length; i++) {
