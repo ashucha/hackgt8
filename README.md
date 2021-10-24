@@ -68,15 +68,21 @@ Any time a request body needs to be submitted, it is expected to contain the fol
 - latitude - The latitude of the location of the restaurant (useful for some of the API endpoints).
 - longitude - The longitude of the location of the restaurant (useful for some of the API endpoints).
 
+---
+
 **GET** `/stores` - Gets all restaurants from the database.
 
 **Query Parameters**
 - foodType - Optionally filter data based on cuisine type.
 
+---
+
 **GET** `/stores/{id}` - Get a specific restaurant based on id.
 
 **Path Parameters**
 - id - A unique id that is assigned to each restaurant and returned after inserting it into the database.
+
+---
 
 **GET** `/stores/nearby/{lat},{lon}` - Get all restaurants within a certain radius of a current location, sorted from closest to furthest.
 
@@ -87,10 +93,14 @@ Any time a request body needs to be submitted, it is expected to contain the fol
 **Query Parameters**
 - radius - An optional limit on the radius from the location within which we should search. Radius is in miles.
 
+---
+
 **POST** `/stores` - Adds a new restaurant to the database.
 
 **Request Body**
 - The restaurant to be added, with the attributes listed above.
+
+---
 
 **PUT** `/stores/{id}` - Updates the info for an existing restaurant in the database.
 
@@ -100,10 +110,14 @@ Any time a request body needs to be submitted, it is expected to contain the fol
 **Request Body**
 - A JSON body containing the new values for each of the attributes.
 
+---
+
 **DELETE** `/stores/{id}` - Deletes an existing restaurant in the database.
 
 **Path Parameters**
 - id - A unique id that is assigned to each restaurant and returned after inserting it into the database.
+
+---
 
 ## 🎊 Future Updates
 
