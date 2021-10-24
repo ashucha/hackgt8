@@ -47,6 +47,7 @@ Por Flavor is essentially "Tinder for food." Upon opening the web app, you'll be
 - [Axios](https://axios-http.com/)
 - [Express](https://expressjs.com/)
 - [React](https://reactjs.org/)
+- [Heroku](https://www.heroku.com/)
 - [NCR's Business Services Platform API](https://developer.ncrcloud.com/)
 
 ## API Documentation
