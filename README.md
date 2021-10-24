@@ -53,11 +53,9 @@ git clone https://github.com/ashucha/hackgt8.git
 - [React](https://reactjs.org/)
 - [NCR's Business Services Platform API](https://developer.ncrcloud.com/)
 
-## Documentation
+## API Documentation
 
-### API
-
-Our API serves as a convenient middleware between the frontend and NCR's Business Services Platform API by taking care of away authentication and simplifying the input format.
+Our API serves as a convenient middleware between the frontend and NCR's Business Services Platform API by taking care of away authentication and simplifying the input format. Our restaurant data is stored on the database provided by NCR's API as "site" objects.
 
 Any time a request body needs to be submitted, it is expected to contain the following attributes:
 - name - The name of the restaurant.
